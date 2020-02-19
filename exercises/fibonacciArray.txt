@@ -1,0 +1,19 @@
+function fibonacciArray(n) {
+  let before = 0;
+  let after = 1;
+  let figo = [];
+  for (let i = 0 ; i < n ; i++) {
+    if (i === 0) {
+      figo.push(1);
+    }
+    if (i === 1) {
+      figo.push(1);
+    }
+    if (i > 1) {
+      figo.push(figo[i-2] + figo[i -1]);
+    }
+  }
+  return figo;
+}
+let n = 8;
+fibonacciArray(n);

@@ -1,0 +1,21 @@
+function fibonacci(n) {
+  let before = 1;
+  let after = 1;
+  for (let i = 0 ; i < n ; i++) {
+    if (i === 0) {
+      console.log('1,');
+    }
+    if (i === 1) {
+      console.log('1,');
+    }
+    if (i > 1) {
+      let fibo = after + before;
+      console.log(fibo);
+      before = after;
+      after = fibo;
+    }
+  }
+}
+
+let n = 8;
+fibonacci(n);
