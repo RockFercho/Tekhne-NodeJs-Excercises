@@ -1,0 +1,55 @@
+<h1>The input element</h1>
+
+<form action="/action_page.php">
+  <label for="lsimple">Simple Arithmetic:</label>
+  <input type="text" id="simple" name="fname">
+  <label id="rsimple">000</label><br><br>
+  <label for="calc">Arithmetic Calculator:</label>
+  <input type="text" id="calculator" name="lname">
+  <label id="rcal">111</label><br><br>
+  <button type="button" onclick='run()'>Execute</button>
+  <script lang="JavaScript">
+        
+        function resolve (num1, num2, operator) {
+          let res;
+          switch(operator) {
+            case '+':
+              res = num1 + num2;
+              break;
+            case '-':
+              res = num1 - num2;
+              break;
+            case '*':
+              res = num1 * num2;
+              break;
+            default:
+              res = num1 / num2;
+          }
+          return res;
+        }
+        function simple(text) {
+          let operator = null;
+          let num1;
+          let num2;
+          let res;
+          for (let i = 1 ; i < text.length ; i ++) {
+            if(!(text.charAt(i) >=0 && text.charAt(i) < 10)) {
+              num1 = Number(text.slice(0,i));
+              operator = text.slice(i,i+1);
+              num2 = Number(text.slice(i+1,text.length));
+              document.getElementById("rsimple").innerHTML = resolve(num1, num2, operator);
+              break;
+            }
+          }
+          return res;
+        }
+        
+        function calc(val) {
+          document.getElementById("rcal").innerHTML = eval(val);
+        }
+        function run() {
+          simple(document.getElementById("simple").value);
+          calc(document.getElementById("calculator").value);
+        }
+    </script>
+</form>
