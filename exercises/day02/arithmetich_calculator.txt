@@ -1,0 +1,6 @@
+function calc(val) {
+  return eval(val);
+}
+let n = '3+5*2+(10-4)';
+console.log(calc(n));
+
